@@ -16,15 +16,16 @@
 * {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;box-sizing: border-box;}
 ul, li {list-style: none;}
 
+/* 슬라이드 CSS */
 .slider {overflow: hidden;position: relative;max-width: 1180px;margin: 50px auto 0;}
 .slider .inner {overflow: hidden;margin: 0 50px;}
 .slide_list > li {width: 20%;height: 150px;background: #ade9ff;font-size: 20px;line-height: 150px;text-align: center;}
 
+/* 페이징 CSS */
 .paging_wrap {margin-top:10px;font-size: 0;text-align: center;}
 .paging_wrap .num {overflow: hidden;display: inline-block;width: 140px;margin: 0 5px;}
 .paging_wrap .paging_first, .paging_wrap .paging_prev, .paging_wrap .paging_next, .paging_wrap .paging_last {display: inline-block;width: 24px;height: 24px;margin:0 2px;border: 1px solid #eee;font-size: 11px;line-height: 22px;text-align: center;vertical-align: top;cursor: pointer;}
 .paging_wrap .paging_first:hover, .paging_wrap .paging_prev:hover, .paging_wrap .paging_next:hover, .paging_wrap .paging_last:hover {border-color: #64cbf1;color: #64cbf1;}
-
 .paging_list {display:flex;}
 .paging_list > li {width: 24px;height: 24px;margin:0 2px;background: none;border: 1px solid #eee;border-radius: 0;font-size: 13px;line-height: 22px;flex-shrink:0;opacity: 1;}
 .paging_list > li.swiper-pagination-bullet-active {border-color: #64cbf1;color: #64cbf1;}
