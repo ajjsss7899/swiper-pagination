@@ -16,16 +16,16 @@
 * {margin: 0;padding: 0;font-family: 'Noto Sans KR', sans-serif;box-sizing: border-box;}
 ul, li {list-style: none;}
 
-/* 슬라이드 CSS */
+/* 슬라이드 */
 .slider {overflow: hidden;position: relative;max-width: 1180px;margin: 50px auto 0;}
 .slider .inner {overflow: hidden;margin: 0 50px;}
 .slide_list > li {width: 20%;height: 150px;background: #ade9ff;font-size: 20px;line-height: 150px;text-align: center;}
 
-/* 페이징 CSS */
+/* 페이징 */
 .paging_wrap {margin-top:10px;font-size: 0;text-align: center;}
 .paging_wrap .num {overflow: hidden;display: inline-block;width: 140px;margin: 0 5px;}
-.paging_wrap .paging_first, .paging_wrap .paging_prev, .paging_wrap .paging_next, .paging_wrap .paging_last {display: inline-block;width: 24px;height: 24px;margin:0 2px;border: 1px solid #eee;font-size: 11px;line-height: 22px;text-align: center;vertical-align: top;cursor: pointer;}
-.paging_wrap .paging_first:hover, .paging_wrap .paging_prev:hover, .paging_wrap .paging_next:hover, .paging_wrap .paging_last:hover {border-color: #64cbf1;color: #64cbf1;}
+.paging_wrap .page_btn {display: inline-block;width: 24px;height: 24px;margin:0 2px;border: 1px solid #eee;font-size: 11px;line-height: 22px;text-align: center;vertical-align: top;cursor: pointer;}
+.paging_wrap .page_btn:hover {border-color: #64cbf1;color: #64cbf1;}
 .paging_list {display:flex;}
 .paging_list > li {width: 24px;height: 24px;margin:0 2px;background: none;border: 1px solid #eee;border-radius: 0;font-size: 13px;line-height: 22px;flex-shrink:0;opacity: 1;}
 .paging_list > li.swiper-pagination-bullet-active {border-color: #64cbf1;color: #64cbf1;}
@@ -57,14 +57,14 @@ ul, li {list-style: none;}
     
     <!-- 페이징 -->
     <div class="paging_wrap">
-        <span class="paging_first">&lt;&lt;</span>
-        <span class="paging_prev">&lt;</span>
+        <span class="page_btn paging_first">&lt;&lt;</span>
+        <span class="page_btn paging_prev">&lt;</span>
         <div class="num">
             <ul class="paging_list">
             </ul>
         </div>
-        <span class="paging_next">&gt;</span>
-        <span class="paging_last">&gt;&gt;</span>
+        <span class="page_btn paging_next">&gt;</span>
+        <span class="page_btn paging_last">&gt;&gt;</span>
     </div>
 </div>
 
@@ -73,7 +73,6 @@ ul, li {list-style: none;}
     $(document).ready(function () {
         slider();
     })
-    
 
     function slider(){
         var swiper = undefined;
@@ -125,7 +124,6 @@ ul, li {list-style: none;}
                 spaceBetween: 4,
                 observer: true,  
                 observeParents: true,
-                
 
                 navigation: {
                     prevEl: $('.slider .paging_prev'),
@@ -175,14 +173,14 @@ ul, li {list-style: none;}
             var pageActive = Math.ceil(slideInx/viewNum) + 1 //현재 페이지 번호
 
             if (pageWidth > listWidth){//총 4페이지 이하일 때
-                $('.slider .paging_list').css({'justify-content':'center','transform':'translate(0,0)'})
+                $('.slider .paging_list').css({"justify-content":"center","transform":"translate(0,0)"})
             }else{
                 if (pageActive <= 3){ //현재 페이지가 1,2,3페이지
-                    $('.slider .paging_list').css({"transform":"translate(0,0)"})
+                    $('.slider .paging_list').css({"justify-content":"flex-start","transform":"translate(0,0)"})
                 }else if (pageActive > pageTotal - 3){ //현재 페이지가 마지막 구간에 도달할 때
-                    $('.slider .paging_list').css({"transform":"translate(-"+(numWidth*(pageTotal - 5))+"px,0)"})
+                    $('.slider .paging_list').css({"justify-content":"flex-start","transform":"translate(-"+(numWidth*(pageTotal - 5))+"px,0)"})
                 }else if (pageActive > 3){ //현재 페이지가 4페이지 이상일 때
-                    $('.slider .paging_list').css({"transform":"translate(-"+(numWidth*(pageActive - 3))+"px,0)"})
+                    $('.slider .paging_list').css({"justify-content":"flex-start","transform":"translate(-"+(numWidth*(pageActive - 3))+"px,0)"})
                 }
             }
         }
