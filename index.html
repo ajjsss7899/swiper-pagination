@@ -76,13 +76,13 @@ ul, li {list-style: none;}
 
     function slider(){
         var swiper = undefined;
-        var winW = $(window).width();
+        var winW = window.innerWidth;
         var viewNum = ''; //슬라이드 개수 (옵션)
         var slideInx = 0; //현재 슬라이드 index
 
         //디바이스 체크
         var winWChk = ''; 
-        if ($(window).width() > 768){ //PC 버전
+        if (window.innerWidth > 768){ //PC 버전
             winWChk = 'pc';
         }else{ //mobile 버전
             winWChk = 'mo';
@@ -91,7 +91,7 @@ ul, li {list-style: none;}
         sliderAct(); //슬라이드 실행
 
         $(window).on('resize', function (){
-            winW = $(window).width();
+            winW = window.innerWidth;
             if(winWChk != 'mo' && winW < 768){ //모바일 버전으로 전환할 때
                 winWChk = 'mo'
                 sliderAct();
