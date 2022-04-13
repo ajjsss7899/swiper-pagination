@@ -92,12 +92,12 @@ ul, li {list-style: none;}
 
         $(window).on('resize', function (){
             winW = window.innerWidth;
-            if(winWChk != 'mo' && winW < 768){ //모바일 버전으로 전환할 때
+            if(winWChk != 'mo' && winW <= 768){ //모바일 버전으로 전환할 때
                 winWChk = 'mo'
                 sliderAct();
             }
 
-            if(winWChk != 'pc' && winW > 768){ //PC 버전으로 전환할 때
+            if(winWChk != 'pc' && winW >= 769){ //PC 버전으로 전환할 때
                 winWChk = 'pc'
                 sliderAct();
             }
