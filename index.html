@@ -82,15 +82,7 @@ ul, li {list-style: none;}
 
         //디바이스 체크
         var winWChk = ''; 
-        if (window.innerWidth > 768){ //PC 버전
-            winWChk = 'pc';
-        }else{ //mobile 버전
-            winWChk = 'mo';
-        }
-
-        sliderAct(); //슬라이드 실행
-
-        $(window).on('resize', function (){
+        $(window).on('load resize', function (){
             winW = window.innerWidth;
             if(winWChk != 'mo' && winW <= 768){ //모바일 버전으로 전환할 때
                 winWChk = 'mo'
